@@ -1,0 +1,10 @@
+###########数据库###########
+sudo apt-get install   -y  mysql-server  mysql-client  libmysqlclient-dev
+sudo service mysql restart
+###########管理器##############
+sudo apt-get install -y phpmyadmin  php-mbstring  php-gettext
+#################
+wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.zip
+ unzip phpMyAdmin-4.8.5-all-languages.zip  -d /var/www/
+ ##############################
+ usermod -a -G aid_inet,aid_net_raw mysql
