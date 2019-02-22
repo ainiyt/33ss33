@@ -1,0 +1,18 @@
+########添加源 以便安装php7.0
+nano /etc/apt/sources.list
+
+deb http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free
+#deb-src http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free
+
+#####添加公钥
+gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
+     gpg --armor --export CCD91D6111A06851 | apt-key add  - 
+#########################
+apt-get update
+apt-get install -y php7.0 php7.0-opcache  php-zip php-dompdf php-xml php-mbstring  php-curl php-mysql  php-gd
+
+##############安装apache2
+apt-get install  -y apache2 
+##############添加内容 已让apache2支持php
+nano /etc/apache2/apache2.conf  #添加
+AddType application/x-httpd-php .php
