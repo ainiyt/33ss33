@@ -1,4 +1,6 @@
 apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip
+sudo update-rc.d -f sendsigs remove
+
 #################
 touch   #创建空文件
 getconf LONG_BIT  #系统多少位
