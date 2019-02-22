@@ -1,0 +1,14 @@
+################启用ssl
+a2enmod ssl 
+a2enmod  rewrite  #重写
+apache2-ssl-certificate 
+ln -s  /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
+##############################
+##############图床可能遇到的问题
+nano /etc/apache2/apache2.conf  #添加
+<Directory /var/www/phpMyAdmin-4.8.5-all-languages> #图床地址
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
