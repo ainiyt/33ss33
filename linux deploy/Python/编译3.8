@@ -1,0 +1,24 @@
+####安装编译相关
+apt install -y gcc make  zlib*
+
+############
+ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0a1.tgz
+ #解压
+tar -zxvf Python-3.8.0a1.tgz
+#进入目录
+cd Python-3.8.0a1
+#执行编译命令
+ ./configure --prefix=/usr/local/python
+ #备选 +启用共享
+ # ./configure --prefix=/usr/local/python --enable-shared
+ make -j2
+make install
+
+#完成后查看
+ python --version
+ python3 --version
+  
+ #安装pip
+ apt-get install python3-distutils
+ wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
