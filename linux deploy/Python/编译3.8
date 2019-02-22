@@ -13,7 +13,8 @@ cd Python-3.8.0a1
  # ./configure --prefix=/usr/local/python --enable-shared
  make -j2
 make install
-
+##############
+ln -s /usr/local/python/bin/python3.8  /usr/bin/python
 #完成后查看
  python --version
  python3 --version
