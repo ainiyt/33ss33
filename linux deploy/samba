@@ -1,0 +1,23 @@
+#挂载 samba
+sudo apt-get install cifs-utils
+nano /etc/fstab
+//server_name/share_folder /nas cifs guest,uid=1000,iocharset=utf8 0 0
+#如果要密码
+//server_name/share_folder /nas cifs username=yourusername,password=youpassword,iocharset=utf8,sec=ntlm 0 0
+sudo mount -a
+#安装samba
+sudo apt-get install samba
+
+sudo nano /etc/samba/smb.conf
+ sudo smbpasswd -a admin
+##############################配置##############################
+
+[work]
+    comment = samba home directory
+    path = /mnt/sdcard1
+    public = yes
+    browseable = yes
+    writable = yes
+    
+    #############################
+    sudo service smbd restart
