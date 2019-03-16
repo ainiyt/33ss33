@@ -1,0 +1,3 @@
+wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb
+dpkg -i  emby-server-deb_4.0.2.0_armhf.deb
+### http://localhost:8096
