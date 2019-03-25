@@ -16,3 +16,9 @@ apt-get install  -y apache2
 ##############添加内容 已让apache2支持php
 nano /etc/apache2/apache2.conf  #添加
 AddType application/x-httpd-php .php
+
+
+
+
+###更新环境
+source /etc/apache2/envvars
