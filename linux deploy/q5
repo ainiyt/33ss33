@@ -2,20 +2,20 @@
 update-rc.d -f sendsigs remove
 
 #####
-ehco "Initial installation"
+echo "Initial installation"
 apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip  samba
 ##########BT
-ehco "install BT"
+echo "install BT"
 apt install deluge-web deluged  gkrellm-mldonkey irssi-scripts mldonkey-gui mldonkey-server 
 ###Emby
-ehco "install Emby"
+echo "install Emby"
 wget  https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb&&dpkg -i emby-server-deb_4.0.2.0_armhf.deb
 wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/init.d/emby/emby
 wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/init.d/emby/emby-server
-ehco "Moving files"
+echo "Moving files"
 mv emby /etc/init.d/emby&&mv emby-server /etc/default/emby-server
-ehco "Change permissions"
+echo "Change permissions"
 chmod 755 /etc/init.d/emby&&/etc/default/emby-server
 #ln -s /opt/emby-server/bin/emby-server  /etc/default/emby-server
-ehco "Boot up"
+echo "Boot up"
 update-rc.d emby defaults 99 
