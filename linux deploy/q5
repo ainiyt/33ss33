@@ -11,9 +11,13 @@ echo "mldonkey-server"
 service mldonkey-server start
 service mldonkey-server restart
 service mldonkey-server stop
+nohup mldonkey >/dev/null&
+ kill -9 $(pidof mldonkey)
+ echo "downloads.ini"
+ find / -name downloads.ini
 
-sed -i '32s\127.0.0.1\0.0.0.0/0\' /var/lib/mldonkey/downloads.ini
-sed -i '32s\127.0.0.1\0.0.0.0/0\' /var/lib/mldonkey/old_config/downloads.ini
+sed -i '32s\127.0.0.1\0.0.0.0/0\' /root/.mldonkey/old_config/downloads.ini
+sed -i '32s\127.0.0.1\0.0.0.0/0\' /root/.mldonkey/downloads.ini
 
 ###Emby
 echo "install Emby"
