@@ -24,7 +24,7 @@ echo "install Emby"
 wget  https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb&&dpkg -i emby-server-deb_4.0.2.0_armhf.deb
 wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/init.d/emby/emby
 wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/init.d/emby/emby-server
-https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/%20init.d/bt
+wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/%20init.d/bt
 echo "Moving files"
 mv emby /etc/init.d/emby&&mv emby-server /etc/default/emby-server&&mv bt /etc/init.d/bt
 echo "Change permissions"
