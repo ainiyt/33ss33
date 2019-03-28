@@ -6,7 +6,7 @@ echo "Initial installation"
 apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip  samba screen
 ##########BT
 echo "install BT"
-apt install deluge-web deluged  gkrellm-mldonkey irssi-scripts mldonkey-gui mldonkey-server 
+apt install mldonkey-server  mldonkey-gui   deluge-web deluged  gkrellm-mldonkey irssi-scripts
 ###Emby
 echo "install Emby"
 wget  https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb&&dpkg -i emby-server-deb_4.0.2.0_armhf.deb
