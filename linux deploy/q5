@@ -3,7 +3,7 @@ update-rc.d -f sendsigs remove
 
 #####
 echo "Initial installation"
-apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip  samba
+apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip  samba screen
 ##########BT
 echo "install BT"
 apt install deluge-web deluged  gkrellm-mldonkey irssi-scripts mldonkey-gui mldonkey-server 
