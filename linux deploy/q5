@@ -7,6 +7,14 @@ apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  
 ##########BT
 echo "install BT"
 apt install mldonkey-server  mldonkey-gui   deluge-web deluged  gkrellm-mldonkey irssi-scripts
+echo "mldonkey-server"
+service mldonkey-server start
+service mldonkey-server restart
+service mldonkey-server stop
+
+sed -i '32s\127.0.0.1\0.0.0.0/0\' /var/lib/mldonkey/downloads.ini
+sed -i '32s\127.0.0.1\0.0.0.0/0\' /var/lib/mldonkey/old_config/downloads.ini
+
 ###Emby
 echo "install Emby"
 wget  https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb&&dpkg -i emby-server-deb_4.0.2.0_armhf.deb
