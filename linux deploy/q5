@@ -15,7 +15,8 @@ wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/init.d/emby/emby
 echo "Moving files"
 mv emby /etc/init.d/emby&&mv emby-server /etc/default/emby-server
 echo "Change permissions"
-chmod 755 /etc/init.d/emby&&/etc/default/emby-server
+chmod 755 /etc/init.d/emby&&chmod 755 /etc/default/emby-server
 #ln -s /opt/emby-server/bin/emby-server  /etc/default/emby-server
 echo "Boot up"
 update-rc.d emby defaults 99 
+rm q5
