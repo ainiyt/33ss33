@@ -1,4 +1,6 @@
-sudo update-rc.d -f sendsigs remove
+#!/bin/sh
+update-rc.d -f sendsigs remove
+
 #####
 ehco "Initial installation"
 apt-get install -y wget ca-certificates    apt-transport-https  curl net-tools  dpkg  zip  samba
