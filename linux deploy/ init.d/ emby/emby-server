@@ -1,0 +1,28 @@
+#!/bin/sh
+
+APP_DIR=/opt/emby-server
+
+export AMDGPU_IDS=$APP_DIR/share/libdrm/amdgpu.ids
+if [ -z $EMBY_DATA ]; then
+  if [ -d /var/lib/emby-server ]; then
+    export EMBY_DATA=/var/lib/emby-server
+  else
+    export EMBY_DATA=/var/lib/emby
+  fi
+fi
+export FONTCONFIG_PATH=$APP_DIR/etc/fonts
+export ICU_DATA=$APP_DIR/share/icu/61.1
+export LD_LIBRARY_PATH=$APP_DIR/lib:$APP_DIR/lib/samba
+export LIBVA_DRIVERS_PATH=$APP_DIR/lib/dri:/usr/lib/x86_64-linux-gnu/dri:/usr/lib64/dri:/usr/lib/dri
+if [ -n $LIBVA_DRIVERS_DIR ]; then
+  export LIBVA_DRIVERS_PATH=$LIBVA_DRIVERS_PATH:$LIBVA_DRIVERS_DIR
+fi
+export SSL_CERT_FILE=$APP_DIR/etc/ssl/certs/ca-certificates.crt
+
+exec $APP_DIR/system/EmbyServer \
+  -programdata $EMBY_DATA \
+  -ffdetect $APP_DIR/bin/ffdetect \
+  -ffmpeg $APP_DIR/bin/ffmpeg \
+  -ffprobe $APP_DIR/bin/ffprobe \
+  -restartexitcode 3 \
+  -updatepackage 'emby-server-deb_{version}_armhf.deb' >/dev/null&
