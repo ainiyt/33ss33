@@ -11,24 +11,30 @@
 # Rewamped	     Christian Svedin / christian.svedin@gmail.com
 # Version:           1.2
 ### END INIT INFO
+COUNT=$(ps -ef |grep mldonkey |grep -v "grep" |wc -l) 
 case "$1" in
 start)
-COUNT=$(ps -ef |grep mldonkey |grep -v "grep" |wc -l)
+
 echo $COUNT
 if [ $COUNT -eq 0 ]; then
        mldonkey >/dev/null&
 
         echo start RUN
 else
-        echo is RUN
+        echo running
 fi
 
 ;;
 stop)
- kill -9 $(pidof mldonkey)
+if [ $COUNT -eq 0 ]; then
+ 
+   echo "程序未运行"
+ else
+	 kill -9 $(pidof mldonkey)
  echo "deon"
+fi
 ;;
 restart)
- kill -9 $(pidof mldonkey)&  mldonkey >/dev/null&
+ kill -9 $(pidof mldonkey) >/dev/null&&  mldonkey >/dev/null&
  echo "deon"
 esac
