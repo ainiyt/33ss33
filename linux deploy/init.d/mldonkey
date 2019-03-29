@@ -1,0 +1,34 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          mldonkey
+# Required-Start:    $remote_fs $syslog $networking
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: mldonkey
+# Description:       mldonkey
+# Author:            Cedric Quillevere / origin@killy.net
+# Rewamped	     Christian Svedin / christian.svedin@gmail.com
+# Version:           1.2
+### END INIT INFO
+case "$1" in
+start)
+COUNT=$(ps -ef |grep mldonkey |grep -v "grep" |wc -l)
+echo $COUNT
+if [ $COUNT -eq 0 ]; then
+       mldonkey >/dev/null&
+
+        echo start RUN
+else
+        echo is RUN
+fi
+
+;;
+stop)
+ kill -9 $(pidof mldonkey)
+ echo "deon"
+;;
+restart)
+ kill -9 $(pidof mldonkey)&  mldonkey >/dev/null&
+ echo "deon"
+esac
