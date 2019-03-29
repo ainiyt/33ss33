@@ -18,7 +18,8 @@ nohup mldonkey >/dev/null&
 
 sed -i '32s\127.0.0.1\0.0.0.0/0\' /root/.mldonkey/old_config/downloads.ini
 sed -i '32s\127.0.0.1\0.0.0.0/0\' /root/.mldonkey/downloads.ini
-
+###sam
+#wget https://github.com/ainiyt/33ss33/raw/master/linux%20deploy/Configuration/smb.conf
 ###Emby
 echo "install Emby"
 wget  https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_armhf.deb&&dpkg -i emby-server-deb_4.0.2.0_armhf.deb
